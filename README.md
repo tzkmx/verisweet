@@ -11,8 +11,8 @@ I'm using virtualenv with my python but I put the virtual python directory into 
 Running
 =======
 
-python verisweet.py
+    python verisweet.py
 
 Accessing
 =========
-Point your browser at http://localhost:5000/incidents
+Point your browser at http://localhost:5000/incidents/new
