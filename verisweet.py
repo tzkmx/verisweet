@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import json
 verisweet = Flask(__name__)
 
 @verisweet.route('/incidents/new/', methods=['GET', 'POST'])
@@ -6,7 +7,11 @@ def new_incident():
     if request.method == 'GET':
         return render_template('new_incident.html')
     else:
-        return str(request.form) 
+        incident = {}
+        for key,value in request.form.iteritems():
+            if value != "":
+                incident[key] = value
+        return json.dumps(incident) 
 
 @verisweet.route('/incidents/')
 def index():
