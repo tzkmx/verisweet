@@ -5,7 +5,7 @@ verisweet = Flask(__name__)
 @verisweet.route('/incidents/new/', methods=['GET', 'POST'])
 def new_incident():
     if request.method == 'GET':
-        return render_template('new_incident.html')
+        return render_template('incidents/new.html')
     else:
         incident = {}
         for key,value in request.form.iteritems():
