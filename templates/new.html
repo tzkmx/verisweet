@@ -85,19 +85,21 @@
                         <label>Victim Industry</label>
                         <input type="text" name="victim[0][industry]">
                     </div>
-                    <div class="form_field">
+                    <div class="form_field halfwidth">
                         <label>Employee Count</label>
-                        <input type="text" name="victim[0][employee_count]">
+                        <select name="victim[0][employee_count]">
+                            {% include 'employee_count.html' %}
+                        </select>
                     </div>
-                    <div class="form_field">
+                    <div class="form_field halfwidth">
                         <label>Country</label>
                         <input type="text" name="victim[0][country]">
                     </div>
-                    <div class="form_field">
+                    <div class="form_field halfwidth">
                         <label>Revenue</label>
                         <input type="text" name="victim[0][revenue][amount]">
                     </div>
-                    <div class="form_field">
+                    <div class="form_field halfwidth">
                         <label>Currency</label>
                         <input type="text" name="victim[0][revenue][iso_currency_code]">
                     </div>
