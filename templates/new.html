@@ -123,19 +123,61 @@
                         <input type="checkbox" name="cb_actor_unknown" value="unknown">Unknown<br>
                     </div>
                     <div id="external_actor_questions"> <!-- this div will only be visible if cb_actor_external is checked -->
-                        <div class="form_field halfwidth">
+                        <h3>External Actor Questions</h3>
+                        <div class="form_field thirdwidth">
                             <label>What motive drove the actor?</label>
-                            <select multiple name="actor[external][motive]">
+                            <select multiple name="actor[external][motive]" size="9">
                                 {% include 'actor_motive.html' %}
                             </select>
                         </div>
-                        <div class="form_field halfwidth">
+                        <div class="form_field thirdwidth">
                             <label>What variety of external actor?</label>
-                            <select multiple name="actor[external][role]">
+                            <select multiple name="actor[external][variety]" size="13">
+                                {% include 'actor_variety.html' %}
+                            </select>
+                        </div>
+                        <div class="form_field thirdwidth">
+                            <label>What role did the external actor play?</label>
+                            <select multiple name="actor[external][role]" size="6">
                                 {% include 'actor_role.html' %}
                             </select>
                         </div>
+                        <div style="clear:both"></div>
+                        <div class="form_field">
+                            <label>What country was the external actor operating in?</label>
+                            <select name="actor[external][country]">
+                                <option value="later">Fill in later</option>
+                            </select>
+                        </div>
+                        <div class="form_field">
+                            <label>External actor notes:</label>
+                            <textarea name="actor[external][notes]" rows="5"></textarea>
+                        </div>
+
+                        <div style="clear:both"></div>
                     </div><!-- end of external actor questions -->
+                    <div id="internal_actor_questions"><!-- this div will only be visible if cb_actor_internal is checked -->
+                        <h3>Internal Actor Questions</h3>
+                        <div class="form_field thirdwidth">
+                            <label>What motive drove the internal actor?</label>
+                            <select multiple name="actor[internal][motive]" size="9">
+                                {% include 'actor_motive.html' %}
+                            </select>
+                        </div>
+                        <div class="form_field thirdwidth">
+                            <label>What variety of internal actor?</label>
+                            <select multiple name="actor[internal][variety]" size="13">
+                                {% include 'actor_variety.html' %}
+                            </select>
+                        </div>
+                        <div class="form_field thirdwidth">
+                            <label>What role did the internal actor play?</label>
+                            <select multiple name="actor[internal][role]" size="6">
+                                {% include 'actor_role.html' %}
+                            </select>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div><!-- end of internal actor questions -->
 
                     <hr>
                     <input type="submit" value="Submit">
