@@ -28,12 +28,12 @@ body {
 }
 
 .form_field input {
-    width: 100%;
+    width: 90%;
     clear:both;
 }
 
 .form_field textarea {
-    width: 100%;
+    width: 90%;
 
 }
 
