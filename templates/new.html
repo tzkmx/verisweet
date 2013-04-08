@@ -42,6 +42,8 @@
             <div class="span9">
                 <form name="incident"  method="post">
                     <p class="todo">TODO: Fix up the CSS for this page so that these elements look nicer.</p>
+                    <p class="todo">TODO: navbar should follow the user down the page so it is always visible.</p>
+                    <p class="todo">TODO: wire up the links in the navbar.</p>
                     <h2>Incident Tracking</h2>
                     <label>Incident id:</label>
                     <input type="text" name="incident_id">
@@ -85,6 +87,7 @@
                     <input type="text" name="victim[0][locations_affected]">
                     <label>Victim Notes</label>
                     <textarea name="victim[0][notes]" rows="5"></textarea>
+                    <p class="todo">TODO: place a button that adds more fields for supporting multiple victims</p>
                     <hr>
                     <h2>Actors</h2>
                     <label>What variety of threat actors were involved in this incident?</label>
@@ -146,7 +149,8 @@
                     <label>Partner actor notes:</label>
                     <textarea name="actor[partner][notes]" rows="5"></textarea>
                     <hr><!-- end of actor questions -->
-                    <h2>Actions></h2>
+                    <h2>Actions</h2>
+                    <p class="todo">TODO: As these are checked the relevant sections should become visible and navigation links should be added to the navbar on the left.</p>
                     <label>What variety of actions were involved in this incident?</label>
                     <input type="checkbox" name="cb_action_malware" value="malware">Malware<br>
                     <input type="checkbox" name="cb_action_hacking" value="hacking">Hacking<br>
@@ -157,25 +161,105 @@
                     <input type="checkbox" name="cb_action_environmental" value="environmental">Environmental<br>
                     <h3>Malware Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_malware is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What variety of malware was present in this incident?</label>
+                    <select multiple name="malware[variety]" size="26">
+                        {% include 'malware_variety.html' %}
+                    </select>
+                    <label>What was the vector of the malware installation?</label>
+                    <select multiple name="malware[vector]" size="13">
+                        {% include 'malware_vector.html' %}
+                    </select>
+                    <label>What was the cve that the malware used?</label>
+                    <input name="malware[cve]">
+                    <label>What was the common name of the malware?</label>
+                    <input name="malware[name]">
+                    <label>Malware notes:</label>
+                    <textarea name="malware[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Hacking Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_hacking is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What variety of hacking was present in this incident?</label>
+                    <select multiple name="hacking[variety]" size="45">
+                        {% include 'hacking_variety.html' %}
+                    </select>
+                    <label>What is the hacking vector</label>
+                    <select multiple name="hacking[vector]" size="9">
+                        {% include 'hacking_vector.html' %}
+                    </select>
+                    <label>Which cve(s) were used in the hacking?</label>
+                    <input name="hacking[cve]">
+                    <label>Hacking notes:</label>
+                    <textarea name="hacking[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Social Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_social is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What variety of social attacks were present in this incident?</label>
+                    <select multiple name="social[variety]" size="14">
+                        {% include 'social_variety.html' %}
+                    </select>
+                    <label>What vectors were used for the social attacks in this incident?</label>
+                    <select multiple name="social[vector]" size="12">
+                        {% include 'social_vector.html' %}
+                    </select>
+                    <label>What were the targets of the social engineering in this incident?</label>
+                    <select multiple name="social[target]" size="18">
+                        {% include 'social_target.html' %}
+                    </select>
+                    <label>Social notes:</label>
+                    <textarea name="social[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Misuse Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_misuse is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What varieties of misuse were present in this incident?</label>
+                    <select multiple name="misuse[variety]" size="12">
+                        {% include 'misuse_variety.html' %}
+                    </select>
+                    <label>What vector was used for the misuse in this incident?</label>
+                    <select multiple name="misuse[vector]" size="6">
+                        {% include 'misuse_vector.html' %}
+                    </select>
+                    <label>Misuse notes:</label>
+                    <textarea name="misuse[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Error Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_error is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What varieties of error contributed to this incident?</label>
+                    <select multiple name="error[variety]" size="17">
+                        {% include 'error_variety.html' %}
+                    </select>
+                    <label>What vectors allowed the errors to happen?</label>
+                    <select multiple name="error[vector]" size="7">
+                        {% include 'error_vector.html' %}
+                    </select>
+                    <label>Error notes:</label>
+                    <textarea name="error[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Physical Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_physical is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What varieties of physical action were present in this incident?</label>
+                    <select multiple name="physical[variety]" size="10">
+                        {% include 'physical_variety.html' %}
+                    </select>
+                    <label>What vectors were used for the physical actions in this incident?</label>
+                    <select multiple name="physical[vector]" size="7">
+                        {% include 'physical_vector.html' %}
+                    </select>
+                    <label>What were the locations of the physical actions?</label>
+                    <select multiple name="physical[location]" size="12">
+                        {% include 'physical_location.html' %}
+                    </select>
+                    <label>Physical notes:</label>
+                    <textarea name="physical[notes]" rows="5"></textarea>
+                    <hr>
                     <h3>Environmental Questions</h3>
                     <p class="todo">TODO: This section should only be visible if cb_action_environmental is checked</p>
-                    <p class="todo">TODO: Fill in this section</p>
+                    <label>What varieties of environmental action contributed to this incident?</label>
+                    <select multiple name="environmental[variety]" size="25">
+                        {% include 'environmental_variety.html' %}
+                    </select>
+                    <label>Environmental notes:</label>
+                    <textarea name="environmental[notes]" rows="5"></textarea>
+                    <hr>
 
                     <hr>
                     <input type="submit" value="Submit">
