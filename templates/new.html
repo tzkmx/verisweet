@@ -29,10 +29,13 @@
             <!-- Navigation Controls -->
             <div class="span3">
                 <ul class="nav nav-list sweet-sidebar">
-                    <li><a href="#"><i class="icon-chevron-right"></i> Incident Tracking</a></li>
-                    <li><a href="#"><i class="icon-chevron-right"></i> Victim Demographics</a></li>
-                    <li><a href="#"><i class="icon-chevron-right"></i> Actors</a></li>
-                    <li><a href="#"><i class="icon-chevron-right"></i> Actions</a></li>
+                    <li><a href="#incident_tracking"><i class="icon-chevron-right"></i> Incident Tracking</a></li>
+                    <li><a href="#victim_demographics"><i class="icon-chevron-right"></i> Victim Demographics</a></li>
+                    <li><a href="#actors"><i class="icon-chevron-right"></i> Actors</a></li>
+                    <li><ul class="nav nav-list"><li><a href="#external"><i class="icon-chevron-right"></i>External</a></li>
+                            <li><a href="#internal"><i class="icon-chevron-right"></i>Internal</a></li>
+                            <li><a href="#partner"><i class="icon-chevron-right"></i>Partner</a></li></ul>
+                    <li><a href="#actions"><i class="icon-chevron-right"></i> Actions</a></li>
                     <li><a href="#"><i class="icon-chevron-right"></i> Assets</a></li>
                     <li><a href="#"><i class="icon-chevron-right"></i> Attributes</a></li>
                 </ul>
@@ -44,7 +47,7 @@
                     <p class="todo">TODO: Fix up the CSS for this page so that these elements look nicer.</p>
                     <p class="todo">TODO: navbar should follow the user down the page so it is always visible.</p>
                     <p class="todo">TODO: wire up the links in the navbar.</p>
-                    <h2>Incident Tracking</h2>
+                    <a name="incident_tracking"><h2>Incident Tracking</h2></a>
                     <label>Incident id:</label>
                     <input type="text" name="incident_id">
                     <label>What is the source of the incident information?</label>
@@ -67,7 +70,7 @@
                     <label>Analyst Notes</label>
                     <textarea name="notes" rows="5"></textarea>
                     <hr>
-                    <h2>Victim Demographics</h2>
+                    <a name="victim_demographics"><h2>Victim Demographics</h2></a>
                     <label>Victim ID</label>
                     <input type="text" name="victim[0][victim_id]">
                     <label>Victim Industry</label>
@@ -89,13 +92,13 @@
                     <textarea name="victim[0][notes]" rows="5"></textarea>
                     <p class="todo">TODO: place a button that adds more fields for supporting multiple victims</p>
                     <hr>
-                    <h2>Actors</h2>
+                    <a name="actors"><h2>Actors</h2></a>
                     <label>What variety of threat actors were involved in this incident?</label>
                     <input type="checkbox" name="cb_actor_external" value="external">External<br>
                     <input type="checkbox" name="cb_actor_internal" value="internal">Internal<br>
                     <input type="checkbox" name="cb_actor_partner" value="partner">Partner<br>
                     <input type="checkbox" name="cb_actor_unknown" value="unknown">Unknown<br>
-                    <h3>External Actor Questions</h3>
+                    <a name="external"><h3>External Actor Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_actor_external is checked</p>
                     <label>What motive drove the actor?</label>
                     <select multiple name="actor[external][motive]" size="9">
@@ -115,7 +118,7 @@
                     </select>
                     <label>External actor notes:</label>
                     <textarea name="actor[external][notes]" rows="5"></textarea>
-                    <h3>Internal Actor Questions</h3>
+                    <a name="internal"><h3>Internal Actor Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_actor_internal is checked</p>
                     <label>What motive drove the internal actor?</label>
                     <select multiple name="actor[internal][motive]" size="9">
@@ -131,7 +134,7 @@
                     </select>
                     <label>Internal actor notes:</label>
                     <textarea name="actor[internal][notes]" rows="5"></textarea>
-                    <h3>Partner Actor Questions</h3>
+                    <a name="partner"><h3>Partner Actor Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_actor_partner is checked</p>
                     <label>What motive drove the partner actor?</label>
                     <select multiple name="actor[partner][motive]" size="9">
@@ -149,7 +152,7 @@
                     <label>Partner actor notes:</label>
                     <textarea name="actor[partner][notes]" rows="5"></textarea>
                     <hr><!-- end of actor questions -->
-                    <h2>Actions</h2>
+                    <a name="actions"><h2>Actions</h2></a>
                     <p class="todo">TODO: As these are checked the relevant sections should become visible and navigation links should be added to the navbar on the left.</p>
                     <label>What variety of actions were involved in this incident?</label>
                     <input type="checkbox" name="cb_action_malware" value="malware">Malware<br>
