@@ -10,7 +10,7 @@
     <link href="{{ url_for('static',filename='css/verisweet.css') }}" rel="stylesheet" media="screen">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
+    <script src="{{ url_for('static',filename='js/html5shiv.js') }}"></script>
     <![endif]--> 
   </head>
   <body>
@@ -43,7 +43,7 @@
                             <li><a href="#error"><i class="icon-chevron-right"></i>Error</a></li>
                             <li><a href="#physical"><i class="icon-chevron-right"></i>Physical</a></li>
                             <li><a href="#environmental"><i class="icon-chevron-right"></i>Environmental</a></li></ul>
-                    <li><a href="#"><i class="icon-chevron-right"></i> Assets</a></li>
+                    <li><a href="#assets"><i class="icon-chevron-right"></i> Assets</a></li>
                     <li><a href="#"><i class="icon-chevron-right"></i> Attributes</a></li>
                 </ul>
             </div> <!-- end of navigation div -->
@@ -269,6 +269,19 @@
                     <label>Environmental notes:</label>
                     <textarea name="environmental[notes]" rows="5"></textarea>
                     <hr>
+                    <a name="assets"><h2>Assets</h2></a>
+                    <label>What kind of server assets were affected in this incident?</label>
+                    <p class="todo">TODO:This is damn ugly. Fix it up with either table or css layout</p>
+                    <p class="todo">TODO: The text boxes should only be visible if the checkbox is checked.</p>
+                    {% include 'asset_server.html' %}
+                    <label>What kind of network assets were affected in this incident?</label>
+                    {% include 'asset_network.html' %}
+                    <label>What kind of user devices were affected in this incident?</label>
+                    {% include 'asset_user.html' %}
+                    <label>What kind of media was affected in this incident?</label>
+                    {% include 'asset_media.html' %}
+                    <label>What kind of payment assets were affected in this incident?</label>
+                    {% include 'asset_payment.html' %}
 
                     <hr>
                     <input type="submit" value="Submit">
