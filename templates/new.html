@@ -5,9 +5,9 @@
     <title>VERISweet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="{{ url_for('static',filename='bootstrap.min.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ url_for('static',filename='bootstrap-responsive.min.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ url_for('static',filename='verisweet.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static',filename='css/bootstrap-responsive.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static',filename='css/verisweet.css') }}" rel="stylesheet" media="screen">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -41,151 +41,98 @@
             <!-- Main form -->
             <div class="span9">
                 <form name="incident"  method="post">
+                    <p class="todo">TODO: Fix up the CSS for this page so that these elements look nicer.</p>
                     <h2>Incident Tracking</h2>
-                    <div class="form_field halfwidth">
-                        <label>Incident id:</label>
-                        <input type="text" name="incident_id">
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>What is the source of the incident information?</label>
-                        <input type="text" name="source_id">
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>Was there a confirmed security compromise?</label>
-                        <select name="security_compromise">
-                            <option value="confirmed">Confirmed</option>
-                            <option value="no">No</option>
-                            <option value="Suspected">Suspected</option>
-                        </select>
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>How confident are you that the information provided is correct?</label>
-                        <select name="confidence">
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                            <option value="none">None</option>
-                        </select>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="form_field">
-                        <label>Incident Summary</label>
-                        <textarea name="summary" rows="5"></textarea>
-                    </div>
-                    <div class="form_field">
-                        <label>Analyst Notes</label>
-                        <textarea name="notes" rows="5"></textarea>
-                    </div>
+                    <label>Incident id:</label>
+                    <input type="text" name="incident_id">
+                    <label>What is the source of the incident information?</label>
+                    <input type="text" name="source_id">
+                    <label>Was there a confirmed security compromise?</label>
+                    <select name="security_compromise">
+                        <option value="confirmed">Confirmed</option>
+                        <option value="no">No</option>
+                        <option value="Suspected">Suspected</option>
+                    </select>
+                    <label>How confident are you that the information provided is correct?</label>
+                    <select name="confidence">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                        <option value="none">None</option>
+                    </select>
+                    <label>Incident Summary</label>
+                    <textarea name="summary" rows="5"></textarea>
+                    <label>Analyst Notes</label>
+                    <textarea name="notes" rows="5"></textarea>
                     <hr>
                     <h2>Victim Demographics</h2>
-                    <div class="form_field">
-                        <label>Victim ID</label>
-                        <input type="text" name="victim[0][victim_id]">
-                    </div>
-                    <div class="form_field">
-                        <label>Victim Industry</label>
-                        <input type="text" name="victim[0][industry]">
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>Employee Count</label>
-                        <select name="victim[0][employee_count]">
-                            {% include 'employee_count.html' %}
-                        </select>
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>Country</label>
-                        <input type="text" name="victim[0][country]">
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>Revenue</label>
-                        <input type="text" name="victim[0][revenue][amount]">
-                    </div>
-                    <div class="form_field halfwidth">
-                        <label>Currency</label>
-                        <input type="text" name="victim[0][revenue][iso_currency_code]">
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="form_field">
-                        <label>Locations Affected</label>
-                        <input type="text" name="victim[0][locations_affected]">
-                    </div>
-                    <div class="form_field">
-                        <label>Victim Notes</label>
-                        <textarea name="victim[0][notes]" rows="5"></textarea>
-                    </div>
+                    <label>Victim ID</label>
+                    <input type="text" name="victim[0][victim_id]">
+                    <label>Victim Industry</label>
+                    <input type="text" name="victim[0][industry]">
+                    <label>Employee Count</label>
+                    <select name="victim[0][employee_count]">
+                        {% include 'employee_count.html' %}
+                    </select>
+                    <label>Country</label>
+                    <input type="text" name="victim[0][country]">
+                    <label>Revenue</label>
+                    <input type="text" name="victim[0][revenue][amount]">
+                    <label>Currency</label>
+                    <p class="todo">TODO: Change this to a select box</p>
+                    <input type="text" name="victim[0][revenue][iso_currency_code]">
+                    <label>Locations Affected</label>
+                    <input type="text" name="victim[0][locations_affected]">
+                    <label>Victim Notes</label>
+                    <textarea name="victim[0][notes]" rows="5"></textarea>
                     <hr>
                     <h2>Actors</h2>
-                    <div class="form_field">
-                        <label>What variety of threat actors were involved in this incident?</label>
-                        <input type="checkbox" name="cb_actor_external" value="external">External<br>
-                        <input type="checkbox" name="cb_actor_internal" value="internal">Internal<br>
-                        <input type="checkbox" name="cb_actor_partner" value="partner">Partner<br>
-                        <input type="checkbox" name="cb_actor_unknown" value="unknown">Unknown<br>
-                    </div>
-                    <div id="external_actor_questions"> <!-- this div will only be visible if cb_actor_external is checked -->
-                        <h3>External Actor Questions</h3>
-                        <div class="form_field thirdwidth">
-                            <label>What motive drove the actor?</label>
-                            <select multiple name="actor[external][motive]" size="9">
-                                {% include 'actor_motive.html' %}
-                            </select>
-                        </div>
-                        <div class="form_field thirdwidth">
-                            <label>What variety of external actor?</label>
-                            <select multiple name="actor[external][variety]" size="13">
-                                {% include 'actor_variety.html' %}
-                            </select>
-                        </div>
-                        <div class="form_field thirdwidth">
-                            <label>What role did the external actor play?</label>
-                            <select multiple name="actor[external][role]" size="6">
-                                {% include 'actor_role.html' %}
-                            </select>
-                        </div>
-                        <div style="clear:both"></div>
-                        <div class="form_field">
-                            <label>What country was the external actor operating in?</label>
-                            <select name="actor[external][country]">
-                                <option value="later">Fill in later</option>
-                            </select>
-                        </div>
-                        <div class="form_field">
-                            <label>External actor notes:</label>
-                            <textarea name="actor[external][notes]" rows="5"></textarea>
-                        </div>
-
-                        <div style="clear:both"></div>
-                    </div><!-- end of external actor questions -->
-                    <div id="internal_actor_questions"><!-- this div will only be visible if cb_actor_internal is checked -->
-                        <h3>Internal Actor Questions</h3>
-                        <div class="form_field thirdwidth">
-                            <label>What motive drove the internal actor?</label>
-                            <select multiple name="actor[internal][motive]" size="9">
-                                {% include 'actor_motive.html' %}
-                            </select>
-                        </div>
-                        <div class="form_field thirdwidth">
-                            <label>What variety of internal actor?</label>
-                            <select multiple name="actor[internal][variety]" size="13">
-                                {% include 'actor_variety.html' %}
-                            </select>
-                        </div>
-                        <div class="form_field thirdwidth">
-                            <label>What role did the internal actor play?</label>
-                            <select multiple name="actor[internal][role]" size="6">
-                                {% include 'actor_role.html' %}
-                            </select>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div><!-- end of internal actor questions -->
-
+                    <label>What variety of threat actors were involved in this incident?</label>
+                    <input type="checkbox" name="cb_actor_external" value="external">External<br>
+                    <input type="checkbox" name="cb_actor_internal" value="internal">Internal<br>
+                    <input type="checkbox" name="cb_actor_partner" value="partner">Partner<br>
+                    <input type="checkbox" name="cb_actor_unknown" value="unknown">Unknown<br>
+                    <h3>External Actor Questions</h3>
+                    <p class="todo">TODO: This section should only be visible if cb_actor_external is checked</p>
+                    <label>What motive drove the actor?</label>
+                    <select multiple name="actor[external][motive]" size="9">
+                        {% include 'actor_motive.html' %}
+                    </select>
+                    <label>What variety of external actor?</label>
+                    <select multiple name="actor[external][variety]" size="13">
+                        {% include 'actor_variety.html' %}
+                    </select>
+                    <label>What role did the external actor play?</label>
+                    <select multiple name="actor[external][role]" size="6">
+                        {% include 'actor_role.html' %}
+                    </select>
+                    <label>What country was the external actor operating in?</label>
+                    <select name="actor[external][country]">
+                        {% include 'actor_country.html' %}
+                    </select>
+                    <label>External actor notes:</label>
+                    <textarea name="actor[external][notes]" rows="5"></textarea>
+                    <h3>Internal Actor Questions</h3>
+                    <p class="todo">TODO: This section should only be visible if cb_actor_internal is checked</p>
+                    <label>What motive drove the internal actor?</label>
+                    <select multiple name="actor[internal][motive]" size="9">
+                        {% include 'actor_motive.html' %}
+                    </select>
+                    <label>What variety of internal actor?</label>
+                    <select multiple name="actor[internal][variety]" size="13">
+                        {% include 'actor_variety.html' %}
+                    </select>
+                    <label>What role did the internal actor play?</label>
+                    <select multiple name="actor[internal][role]" size="6">
+                        {% include 'actor_role.html' %}
+                    </select>
                     <hr>
                     <input type="submit" value="Submit">
                 </form>
             </div> <!-- end of bootstrap span9 -->
         </div> <!-- end of bootstrap row -->
     </div> <!-- end of container -->
-    <script src="{{ url_for('static',filename='jquery-1.9.1.min.js') }}"></script> 
-    <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-1.9.1.min.js') }}"></script> 
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
   </body>
 </html>
