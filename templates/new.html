@@ -28,7 +28,7 @@
         <div class="row-fluid">
             <!-- Navigation Controls -->
             <div class="span3">
-                <ul class="nav nav-list sweet-sidebar">
+                <ul class="nav nav-list sweet-sidebar" data-spy="affix" data-offset-top="50">
                     <li><a href="#incident_tracking"><i class="icon-chevron-right"></i> Incident Tracking</a></li>
                     <li><a href="#victim_demographics"><i class="icon-chevron-right"></i> Victim Demographics</a></li>
                     <li><a href="#actors"><i class="icon-chevron-right"></i> Actors</a></li>
@@ -36,6 +36,13 @@
                             <li><a href="#internal"><i class="icon-chevron-right"></i>Internal</a></li>
                             <li><a href="#partner"><i class="icon-chevron-right"></i>Partner</a></li></ul>
                     <li><a href="#actions"><i class="icon-chevron-right"></i> Actions</a></li>
+                    <li><ul class="nav nav-list"><li><a href="#malware"><i class="icon-chevron-right"></i>Malware</a></li>
+                            <li><a href="#hacking"><i class="icon-chevron-right"></i>Hacking</a></li>
+                            <li><a href="#social"><i class="icon-chevron-right"></i>Social</a></li>
+                            <li><a href="#misuse"><i class="icon-chevron-right"></i>Misuse</a></li>
+                            <li><a href="#error"><i class="icon-chevron-right"></i>Error</a></li>
+                            <li><a href="#physical"><i class="icon-chevron-right"></i>Physical</a></li>
+                            <li><a href="#environmental"><i class="icon-chevron-right"></i>Environmental</a></li></ul>
                     <li><a href="#"><i class="icon-chevron-right"></i> Assets</a></li>
                     <li><a href="#"><i class="icon-chevron-right"></i> Attributes</a></li>
                 </ul>
@@ -45,7 +52,6 @@
             <div class="span9">
                 <form name="incident"  method="post">
                     <p class="todo">TODO: Fix up the CSS for this page so that these elements look nicer.</p>
-                    <p class="todo">TODO: navbar should follow the user down the page so it is always visible.</p>
                     <p class="todo">TODO: wire up the links in the navbar.</p>
                     <a name="incident_tracking"><h2>Incident Tracking</h2></a>
                     <label>Incident id:</label>
@@ -162,7 +168,7 @@
                     <input type="checkbox" name="cb_action_error" value="error">Error<br>
                     <input type="checkbox" name="cb_action_physical" value="physical">Physical<br>
                     <input type="checkbox" name="cb_action_environmental" value="environmental">Environmental<br>
-                    <h3>Malware Questions</h3>
+                    <a name="malware"><h3>Malware Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_malware is checked</p>
                     <label>What variety of malware was present in this incident?</label>
                     <select multiple name="malware[variety]" size="26">
@@ -179,7 +185,7 @@
                     <label>Malware notes:</label>
                     <textarea name="malware[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Hacking Questions</h3>
+                    <a name="hacking"><h3>Hacking Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_hacking is checked</p>
                     <label>What variety of hacking was present in this incident?</label>
                     <select multiple name="hacking[variety]" size="45">
@@ -194,7 +200,7 @@
                     <label>Hacking notes:</label>
                     <textarea name="hacking[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Social Questions</h3>
+                    <a name="social"><h3>Social Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_social is checked</p>
                     <label>What variety of social attacks were present in this incident?</label>
                     <select multiple name="social[variety]" size="14">
@@ -211,7 +217,7 @@
                     <label>Social notes:</label>
                     <textarea name="social[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Misuse Questions</h3>
+                    <a name="misuse"><h3>Misuse Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_misuse is checked</p>
                     <label>What varieties of misuse were present in this incident?</label>
                     <select multiple name="misuse[variety]" size="12">
@@ -224,7 +230,7 @@
                     <label>Misuse notes:</label>
                     <textarea name="misuse[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Error Questions</h3>
+                    <a name="error"><h3>Error Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_error is checked</p>
                     <label>What varieties of error contributed to this incident?</label>
                     <select multiple name="error[variety]" size="17">
@@ -237,7 +243,7 @@
                     <label>Error notes:</label>
                     <textarea name="error[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Physical Questions</h3>
+                    <a name="physical"><h3>Physical Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_physical is checked</p>
                     <label>What varieties of physical action were present in this incident?</label>
                     <select multiple name="physical[variety]" size="10">
@@ -254,7 +260,7 @@
                     <label>Physical notes:</label>
                     <textarea name="physical[notes]" rows="5"></textarea>
                     <hr>
-                    <h3>Environmental Questions</h3>
+                    <a name="environmental"><h3>Environmental Questions</h3></a>
                     <p class="todo">TODO: This section should only be visible if cb_action_environmental is checked</p>
                     <label>What varieties of environmental action contributed to this incident?</label>
                     <select multiple name="environmental[variety]" size="25">
