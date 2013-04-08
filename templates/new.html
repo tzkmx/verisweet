@@ -126,6 +126,26 @@
                     <select multiple name="actor[internal][role]" size="6">
                         {% include 'actor_role.html' %}
                     </select>
+                    <label>Internal actor notes:</label>
+                    <textarea name="actor[internal][notes]" rows="5"></textarea>
+                    <h3>Partner Actor Questions</h3>
+                    <p class="todo">TODO: This section should only be visible if cb_actor_partner is checked</p>
+                    <label>What motive drove the partner actor?</label>
+                    <select multiple name="actor[partner][motive]" size="9">
+                        {% include 'actor_motive.html' %}
+                    </select>
+                    <label>What role did the partneractor play?</label>
+                    <select multiple name="actor[partner][role]" size="6">
+                        {% include 'actor_role.html' %}
+                    </select>
+                    <p class="todo">TODO: Include partner industry select here</p>
+                    <label>What country was the partner actor operating in?</label>
+                    <select name="actor[partner][country]">
+                        {% include 'actor_country.html' %}
+                    </select>
+                    <label>Partner actor notes:</label>
+                    <textarea name="actor[partner][notes]" rows="5"></textarea>
+
                     <hr>
                     <input type="submit" value="Submit">
                 </form>
