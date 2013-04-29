@@ -36,13 +36,13 @@
                             <li><a href="#internal" id="internal-actor-nav-link"><i class="icon-chevron-right"></i>Internal</a></li>
                             <li><a href="#partner" id="partner-actor-nav-link"><i class="icon-chevron-right"></i>Partner</a></li></ul>
                     <li><a href="#actions"><i class="icon-chevron-right"></i> Actions</a></li>
-                    <li><ul class="nav nav-list"><li><a href="#malware"><i class="icon-chevron-right"></i>Malware</a></li>
-                            <li><a href="#hacking"><i class="icon-chevron-right"></i>Hacking</a></li>
-                            <li><a href="#social"><i class="icon-chevron-right"></i>Social</a></li>
-                            <li><a href="#misuse"><i class="icon-chevron-right"></i>Misuse</a></li>
-                            <li><a href="#error"><i class="icon-chevron-right"></i>Error</a></li>
-                            <li><a href="#physical"><i class="icon-chevron-right"></i>Physical</a></li>
-                            <li><a href="#environmental"><i class="icon-chevron-right"></i>Environmental</a></li></ul>
+                    <li><ul class="nav nav-list"><li><a href="#malware" id="malware-action-nav-link"><i class="icon-chevron-right"></i>Malware</a></li>
+                            <li><a href="#hacking" id="hacking-action-nav-link"><i class="icon-chevron-right"></i>Hacking</a></li>
+                            <li><a href="#social" id="social-action-nav-link"><i class="icon-chevron-right"></i>Social</a></li>
+                            <li><a href="#misuse" id="misuse-action-nav-link"><i class="icon-chevron-right"></i>Misuse</a></li>
+                            <li><a href="#error" id="error-action-nav-link"><i class="icon-chevron-right"></i>Error</a></li>
+                            <li><a href="#physical" id="physical-action-nav-link"><i class="icon-chevron-right"></i>Physical</a></li>
+                            <li><a href="#environmental" id="environmental-action-nav-link"><i class="icon-chevron-right"></i>Environmental</a></li></ul>
                     <li><a href="#assets"><i class="icon-chevron-right"></i> Assets</a></li>
                     <li><a href="#"><i class="icon-chevron-right"></i> Attributes</a></li>
                 </ul>
@@ -164,114 +164,128 @@
                     <a name="actions"><h2>Actions</h2></a>
                     <p class="todo">TODO: As these are checked the relevant sections should become visible and navigation links should be added to the navbar on the left.</p>
                     <label>What variety of actions were involved in this incident?</label>
-                    <input type="checkbox" name="cb_action_malware" value="malware">Malware<br>
-                    <input type="checkbox" name="cb_action_hacking" value="hacking">Hacking<br>
-                    <input type="checkbox" name="cb_action_social" value="social">Social<br>
-                    <input type="checkbox" name="cb_action_misuse" value="misuse">Misuse<br>
-                    <input type="checkbox" name="cb_action_error" value="error">Error<br>
-                    <input type="checkbox" name="cb_action_physical" value="physical">Physical<br>
-                    <input type="checkbox" name="cb_action_environmental" value="environmental">Environmental<br>
-                    <a name="malware"><h3>Malware Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_malware is checked</p>
-                    <label>What variety of malware was present in this incident?</label>
-                    <select multiple name="malware[variety]" size="26">
-                        {% include 'malware_variety.html' %}
-                    </select>
-                    <label>What was the vector of the malware installation?</label>
-                    <select multiple name="malware[vector]" size="13">
-                        {% include 'malware_vector.html' %}
-                    </select>
-                    <label>What was the cve that the malware used?</label>
-                    <input name="malware[cve]">
-                    <label>What was the common name of the malware?</label>
-                    <input name="malware[name]">
-                    <label>Malware notes:</label>
-                    <textarea name="malware[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="hacking"><h3>Hacking Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_hacking is checked</p>
-                    <label>What variety of hacking was present in this incident?</label>
-                    <select multiple name="hacking[variety]" size="45">
-                        {% include 'hacking_variety.html' %}
-                    </select>
-                    <label>What is the hacking vector</label>
-                    <select multiple name="hacking[vector]" size="9">
-                        {% include 'hacking_vector.html' %}
-                    </select>
-                    <label>Which cve(s) were used in the hacking?</label>
-                    <input name="hacking[cve]">
-                    <label>Hacking notes:</label>
-                    <textarea name="hacking[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="social"><h3>Social Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_social is checked</p>
-                    <label>What variety of social attacks were present in this incident?</label>
-                    <select multiple name="social[variety]" size="14">
-                        {% include 'social_variety.html' %}
-                    </select>
-                    <label>What vectors were used for the social attacks in this incident?</label>
-                    <select multiple name="social[vector]" size="12">
-                        {% include 'social_vector.html' %}
-                    </select>
-                    <label>What were the targets of the social engineering in this incident?</label>
-                    <select multiple name="social[target]" size="18">
-                        {% include 'social_target.html' %}
-                    </select>
-                    <label>Social notes:</label>
-                    <textarea name="social[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="misuse"><h3>Misuse Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_misuse is checked</p>
-                    <label>What varieties of misuse were present in this incident?</label>
-                    <select multiple name="misuse[variety]" size="12">
-                        {% include 'misuse_variety.html' %}
-                    </select>
-                    <label>What vector was used for the misuse in this incident?</label>
-                    <select multiple name="misuse[vector]" size="6">
-                        {% include 'misuse_vector.html' %}
-                    </select>
-                    <label>Misuse notes:</label>
-                    <textarea name="misuse[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="error"><h3>Error Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_error is checked</p>
-                    <label>What varieties of error contributed to this incident?</label>
-                    <select multiple name="error[variety]" size="17">
+                    <input type="checkbox" name="cb-action-malware" id="cb-action-malware" value="malware">Malware<br>
+                    <input type="checkbox" name="cb-action-hacking" id="cb-action-hacking" value="hacking">Hacking<br>
+                    <input type="checkbox" name="cb-action-social" id="cb-action-social" value="social">Social<br>
+                    <input type="checkbox" name="cb-action-misuse" id="cb-action-misuse" value="misuse">Misuse<br>
+                    <input type="checkbox" name="cb-action-error" id="cb-action-error" value="error">Error<br>
+                    <input type="checkbox" name="cb-action-physical" id="cb-action-physical" value="physical">Physical<br>
+                    <input type="checkbox" name="cb-action-environmental" id="cb-action-environmental" value="environmental">Environmental<br>
+                    <div id="malware-action-questions">
+                        <a name="malware"><h3>Malware Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_malware is checked</p>
+                        <label>What variety of malware was present in this incident?</label>
+                        <select multiple name="malware[variety]" size="26">
+                            {% include 'malware_variety.html' %}
+                        </select>
+                        <label>What was the vector of the malware installation?</label>
+                        <select multiple name="malware[vector]" size="13">
+                            {% include 'malware_vector.html' %}
+                        </select>
+                        <label>What was the cve that the malware used?</label>
+                        <input name="malware[cve]">
+                        <label>What was the common name of the malware?</label>
+                        <input name="malware[name]">
+                        <label>Malware notes:</label>
+                        <textarea name="malware[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="hacking-action-questions">
+                        <a name="hacking"><h3>Hacking Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_hacking is checked</p>
+                        <label>What variety of hacking was present in this incident?</label>
+                        <select multiple name="hacking[variety]" size="45">
+                            {% include 'hacking_variety.html' %}
+                        </select>
+                        <label>What is the hacking vector</label>
+                        <select multiple name="hacking[vector]" size="9">
+                            {% include 'hacking_vector.html' %}
+                        </select>
+                        <label>Which cve(s) were used in the hacking?</label>
+                        <input name="hacking[cve]">
+                        <label>Hacking notes:</label>
+                        <textarea name="hacking[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="social-action-questions">
+                        <a name="social"><h3>Social Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_social is checked</p>
+                        <label>What variety of social attacks were present in this incident?</label>
+                        <select multiple name="social[variety]" size="14">
+                            {% include 'social_variety.html' %}
+                        </select>
+                        <label>What vectors were used for the social attacks in this incident?</label>
+                        <select multiple name="social[vector]" size="12">
+                            {% include 'social_vector.html' %}
+                        </select>
+                        <label>What were the targets of the social engineering in this incident?</label>
+                        <select multiple name="social[target]" size="18">
+                            {% include 'social_target.html' %}
+                        </select>
+                        <label>Social notes:</label>
+                        <textarea name="social[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="misuse-action-questions">
+                        <a name="misuse"><h3>Misuse Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_misuse is checked</p>
+                        <label>What varieties of misuse were present in this incident?</label>
+                        <select multiple name="misuse[variety]" size="12">
+                            {% include 'misuse_variety.html' %}
+                        </select>
+                        <label>What vector was used for the misuse in this incident?</label>
+                        <select multiple name="misuse[vector]" size="6">
+                            {% include 'misuse_vector.html' %}
+                        </select>
+                        <label>Misuse notes:</label>
+                        <textarea name="misuse[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="error-action-questions">
+                        <a name="error"><h3>Error Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_error is checked</p>
+                        <label>What varieties of error contributed to this incident?</label>
+                        <select multiple name="error[variety]" size="17">
                         {% include 'error_variety.html' %}
-                    </select>
-                    <label>What vectors allowed the errors to happen?</label>
-                    <select multiple name="error[vector]" size="7">
-                        {% include 'error_vector.html' %}
-                    </select>
-                    <label>Error notes:</label>
-                    <textarea name="error[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="physical"><h3>Physical Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_physical is checked</p>
-                    <label>What varieties of physical action were present in this incident?</label>
-                    <select multiple name="physical[variety]" size="10">
-                        {% include 'physical_variety.html' %}
-                    </select>
-                    <label>What vectors were used for the physical actions in this incident?</label>
-                    <select multiple name="physical[vector]" size="7">
-                        {% include 'physical_vector.html' %}
-                    </select>
-                    <label>What were the locations of the physical actions?</label>
-                    <select multiple name="physical[location]" size="12">
-                        {% include 'physical_location.html' %}
-                    </select>
-                    <label>Physical notes:</label>
-                    <textarea name="physical[notes]" rows="5"></textarea>
-                    <hr>
-                    <a name="environmental"><h3>Environmental Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_action_environmental is checked</p>
-                    <label>What varieties of environmental action contributed to this incident?</label>
-                    <select multiple name="environmental[variety]" size="25">
-                        {% include 'environmental_variety.html' %}
-                    </select>
-                    <label>Environmental notes:</label>
-                    <textarea name="environmental[notes]" rows="5"></textarea>
-                    <hr>
+                        </select>
+                        <label>What vectors allowed the errors to happen?</label>
+                        <select multiple name="error[vector]" size="7">
+                            {% include 'error_vector.html' %}
+                        </select>
+                        <label>Error notes:</label>
+                        <textarea name="error[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="physical-action-questions">
+                        <a name="physical"><h3>Physical Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_physical is checked</p>
+                        <label>What varieties of physical action were present in this incident?</label>
+                        <select multiple name="physical[variety]" size="10">
+                            {% include 'physical_variety.html' %}
+                        </select>
+                        <label>What vectors were used for the physical actions in this incident?</label>
+                        <select multiple name="physical[vector]" size="7">
+                            {% include 'physical_vector.html' %}
+                        </select>
+                        <label>What were the locations of the physical actions?</label>
+                        <select multiple name="physical[location]" size="12">
+                            {% include 'physical_location.html' %}
+                        </select>
+                        <label>Physical notes:</label>
+                        <textarea name="physical[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
+                    <div id="environmental-action-questions">
+                        <a name="environmental"><h3>Environmental Questions</h3></a>
+                        <p class="todo">TODO: This section should only be visible if cb_action_environmental is checked</p>
+                        <label>What varieties of environmental action contributed to this incident?</label>
+                        <select multiple name="environmental[variety]" size="25">
+                            {% include 'environmental_variety.html' %}
+                        </select>
+                        <label>Environmental notes:</label>
+                        <textarea name="environmental[notes]" rows="5"></textarea>
+                        <hr>
+                    </div>
                     <a name="assets"><h2>Assets</h2></a>
                     <label>What kind of server assets were affected in this incident?</label>
                     <p class="todo">TODO:This is damn ugly. Fix it up with either table or css layout</p>
