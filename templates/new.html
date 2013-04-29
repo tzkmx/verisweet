@@ -32,9 +32,9 @@
                     <li><a href="#incident_tracking"><i class="icon-chevron-right"></i> Incident Tracking</a></li>
                     <li><a href="#victim_demographics"><i class="icon-chevron-right"></i> Victim Demographics</a></li>
                     <li><a href="#actors"><i class="icon-chevron-right"></i> Actors</a></li>
-                    <li><ul class="nav nav-list"><li><a href="#external"><i class="icon-chevron-right"></i>External</a></li>
-                            <li><a href="#internal"><i class="icon-chevron-right"></i>Internal</a></li>
-                            <li><a href="#partner"><i class="icon-chevron-right"></i>Partner</a></li></ul>
+                    <li><ul class="nav nav-list"><li><a href="#external" id="external-actor-nav-link"><i class="icon-chevron-right"></i>External</a></li>
+                            <li><a href="#internal" id="internal-actor-nav-link"><i class="icon-chevron-right"></i>Internal</a></li>
+                            <li><a href="#partner" id="partner-actor-nav-link"><i class="icon-chevron-right"></i>Partner</a></li></ul>
                     <li><a href="#actions"><i class="icon-chevron-right"></i> Actions</a></li>
                     <li><ul class="nav nav-list"><li><a href="#malware"><i class="icon-chevron-right"></i>Malware</a></li>
                             <li><a href="#hacking"><i class="icon-chevron-right"></i>Hacking</a></li>
@@ -100,63 +100,66 @@
                     <hr>
                     <a name="actors"><h2>Actors</h2></a>
                     <label>What variety of threat actors were involved in this incident?</label>
-                    <input type="checkbox" name="cb_actor_external" value="external">External<br>
-                    <input type="checkbox" name="cb_actor_internal" value="internal">Internal<br>
-                    <input type="checkbox" name="cb_actor_partner" value="partner">Partner<br>
-                    <input type="checkbox" name="cb_actor_unknown" value="unknown">Unknown<br>
-                    <a name="external"><h3>External Actor Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_actor_external is checked</p>
-                    <label>What motive drove the actor?</label>
-                    <select multiple name="actor[external][motive]" size="9">
-                        {% include 'actor_motive.html' %}
-                    </select>
-                    <label>What variety of external actor?</label>
-                    <select multiple name="actor[external][variety]" size="13">
-                        {% include 'actor_variety.html' %}
-                    </select>
-                    <label>What role did the external actor play?</label>
-                    <select multiple name="actor[external][role]" size="6">
-                        {% include 'actor_role.html' %}
-                    </select>
-                    <label>What country was the external actor operating in?</label>
-                    <select name="actor[external][country]">
-                        {% include 'actor_country.html' %}
-                    </select>
-                    <label>External actor notes:</label>
-                    <textarea name="actor[external][notes]" rows="5"></textarea>
-                    <a name="internal"><h3>Internal Actor Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_actor_internal is checked</p>
-                    <label>What motive drove the internal actor?</label>
-                    <select multiple name="actor[internal][motive]" size="9">
-                        {% include 'actor_motive.html' %}
-                    </select>
-                    <label>What variety of internal actor?</label>
-                    <select multiple name="actor[internal][variety]" size="13">
-                        {% include 'actor_variety.html' %}
-                    </select>
-                    <label>What role did the internal actor play?</label>
-                    <select multiple name="actor[internal][role]" size="6">
-                        {% include 'actor_role.html' %}
-                    </select>
-                    <label>Internal actor notes:</label>
-                    <textarea name="actor[internal][notes]" rows="5"></textarea>
-                    <a name="partner"><h3>Partner Actor Questions</h3></a>
-                    <p class="todo">TODO: This section should only be visible if cb_actor_partner is checked</p>
-                    <label>What motive drove the partner actor?</label>
-                    <select multiple name="actor[partner][motive]" size="9">
-                        {% include 'actor_motive.html' %}
-                    </select>
-                    <label>What role did the partneractor play?</label>
-                    <select multiple name="actor[partner][role]" size="6">
-                        {% include 'actor_role.html' %}
-                    </select>
-                    <p class="todo">TODO: Include partner industry select here</p>
-                    <label>What country was the partner actor operating in?</label>
-                    <select name="actor[partner][country]">
-                        {% include 'actor_country.html' %}
-                    </select>
-                    <label>Partner actor notes:</label>
-                    <textarea name="actor[partner][notes]" rows="5"></textarea>
+                    <input type="checkbox" name="cb-actor-external" id="cb-actor-external" value="external">External<br>
+                    <input type="checkbox" name="cb-actor-internal" id="cb-actor-internal" value="internal">Internal<br>
+                    <input type="checkbox" name="cb-actor-partner" id="cb-actor-partner" value="partner">Partner<br>
+                    <input type="checkbox" name="cb-actor-unknown" id="cb-actor-unknown" value="unknown">Unknown<br>
+                    <div id="external-actor-questions">
+                        <a name="external"><h3>External Actor Questions</h3></a>
+                        <label>What motive drove the actor?</label>
+                        <select multiple name="actor[external][motive]" size="9">
+                            {% include 'actor_motive.html' %}
+                        </select>
+                        <label>What variety of external actor?</label>
+                        <select multiple name="actor[external][variety]" size="13">
+                            {% include 'actor_variety.html' %}
+                        </select>
+                        <label>What role did the external actor play?</label>
+                        <select multiple name="actor[external][role]" size="6">
+                            {% include 'actor_role.html' %}
+                        </select>
+                        <label>What country was the external actor operating in?</label>
+                        <select name="actor[external][country]">
+                            {% include 'actor_country.html' %}
+                        </select>
+                        <label>External actor notes:</label>
+                        <textarea name="actor[external][notes]" rows="5"></textarea>
+                    </div>
+                    <div id="internal-actor-questions"> 
+                        <a name="internal"><h3>Internal Actor Questions</h3></a>
+                        <label>What motive drove the internal actor?</label>
+                        <select multiple name="actor[internal][motive]" size="9">
+                            {% include 'actor_motive.html' %}
+                        </select>
+                        <label>What variety of internal actor?</label>
+                        <select multiple name="actor[internal][variety]" size="13">
+                            {% include 'actor_variety.html' %}
+                        </select>
+                        <label>What role did the internal actor play?</label>
+                        <select multiple name="actor[internal][role]" size="6">
+                            {% include 'actor_role.html' %}
+                        </select>
+                        <label>Internal actor notes:</label>
+                        <textarea name="actor[internal][notes]" rows="5"></textarea>
+                    </div>
+                    <div id="partner-actor-questions">
+                        <a name="partner"><h3>Partner Actor Questions</h3></a>
+                        <label>What motive drove the partner actor?</label>
+                        <select multiple name="actor[partner][motive]" size="9">
+                            {% include 'actor_motive.html' %}
+                        </select>
+                        <label>What role did the partneractor play?</label>
+                        <select multiple name="actor[partner][role]" size="6">
+                            {% include 'actor_role.html' %}
+                        </select>
+                        <p class="todo">TODO: Include partner industry select here</p>
+                        <label>What country was the partner actor operating in?</label>
+                        <select name="actor[partner][country]">
+                            {% include 'actor_country.html' %}
+                        </select>
+                        <label>Partner actor notes:</label>
+                        <textarea name="actor[partner][notes]" rows="5"></textarea>
+                    </div>
                     <hr><!-- end of actor questions -->
                     <a name="actions"><h2>Actions</h2></a>
                     <p class="todo">TODO: As these are checked the relevant sections should become visible and navigation links should be added to the navbar on the left.</p>
@@ -291,5 +294,6 @@
     </div> <!-- end of container -->
     <script src="{{ url_for('static',filename='js/jquery-1.9.1.min.js') }}"></script> 
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/verisweet.js') }}"></script>
   </body>
 </html>
